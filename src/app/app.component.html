@@ -13,9 +13,13 @@
         <th>Category</th>
         <th>Price</th>
     </tr>
-    <ng-template [paForOf]="getProducts()" let-item>
-        <tr>
-            <td colspan="4">{{item.name}}</td>
+    <ng-template [paForOf]="getProducts()" let-item let-i="index"
+                 let-odd="odd" let-even="even">
+        <tr [class.bg-info]="odd" [class.bg-warning]="even">
+            <td>{{i + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}}</td>
         </tr>
     </ng-template>
 </table>

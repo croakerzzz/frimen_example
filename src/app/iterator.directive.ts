@@ -15,7 +15,9 @@ export class PaIteratorDirective {
         collection.forEach((item, index) => {
             const context = {
                 $implicit: item,
-                index
+                index,
+                odd: index % 2 == 1,
+                even: index % 2 == 0
             };
 
             this.container.createEmbeddedView(this.template, context);
