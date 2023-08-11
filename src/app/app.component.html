@@ -32,8 +32,8 @@
 <div class="col-xs-6">
     <div class="form-group bg-info p-a-1">
         <label>Name:</label>
-        <input class="bg-primary" [paModel]="newProduct.name"
-               (paModelChange)="newProduct.name=$event"/>
+        <input class="bg-primary" [(paModel)]="newProduct.name" #paModel="paModel"/>
+        <div class="bg-primary">Direction: {{paModel.direction}}</div>
     </div>
 
     <table class="table table-sm table-bordered table-striped">
