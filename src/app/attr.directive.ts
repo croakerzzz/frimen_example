@@ -1,4 +1,15 @@
-import {Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges} from "@angular/core";
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChange,
+    SimpleChanges
+} from "@angular/core";
+import {Product} from "./model/product.model";
 
 @Directive({
     selector: "[pa-attr]",
@@ -6,10 +17,21 @@ import {Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges} from "@a
 export class PaAttrDirective implements OnInit, OnChanges {
 
     constructor(private element: ElementRef) {
+        this.element.nativeElement.addEventListener("click", () => {
+            if (this.product != null) {
+                this.click.emit(this.product.category);
+            }
+        });
     }
 
     @Input("pa-attr")
     bgClass?: string | null;
+
+    @Input("pa-product")
+    product?: Product;
+
+    @Output("pa-category")
+    click = new EventEmitter<string>();
 
     ngOnInit() {
         this.element.nativeElement.classList.add(this.bgClass || "bg-success");
