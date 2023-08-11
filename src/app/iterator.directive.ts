@@ -1,11 +1,27 @@
-import {Directive, DoCheck, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef} from "@angular/core";
+import {
+    ChangeDetectorRef,
+    Directive,
+    DoCheck,
+    Input, IterableDiffer,
+    IterableDiffers,
+    OnChanges,
+    SimpleChanges,
+    TemplateRef,
+    ViewContainerRef
+} from "@angular/core";
 
 @Directive({
     selector: "[paForOf]"
 })
 export class PaIteratorDirective implements OnChanges, DoCheck {
-    constructor(private container: ViewContainerRef,
-                private template: TemplateRef<Object>) {
+    private differ!: IterableDiffer<any>;
+
+    constructor(
+        private container: ViewContainerRef,
+        private template: TemplateRef<Object>,
+        private differs: IterableDiffers,
+        private changeDetector: ChangeDetectorRef
+    ) {
     }
 
     collection!: any[];
@@ -13,8 +29,6 @@ export class PaIteratorDirective implements OnChanges, DoCheck {
     @Input()
     set paForOf(collection: any[]) {
         this.collection = collection;
-
-        this.updateContent();
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -27,11 +41,29 @@ export class PaIteratorDirective implements OnChanges, DoCheck {
 
         console.log('DoCheck');
 
-        this.updateContent();
+        if (this.collection) {
+            if (!this.differ) {
+                this.differ = this.differs.find(this.collection).create();
+            }
+
+            // todo почитать про differ
+            const changes = this.differ.diff(this.collection);
+
+            if (changes) {
+                console.log("collection changed!!!")
+
+                this.updateContent();
+            }
+        }
+
+
+        //this.updateContent();
 
     }
 
     private updateContent() {
+        console.log('update content');
+
         this.container.clear();
 
         this.collection.forEach((item, index) => {
