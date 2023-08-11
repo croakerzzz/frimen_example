@@ -9,8 +9,12 @@ import {ProductFormControl, ProductFormGroup} from "./form.model";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
     model: Model = new Model();
+
     form: ProductFormGroup = new ProductFormGroup();
+
+    showTable: boolean = true;
 
     getProduct(key: number): Product | undefined {
         return this.model.getProduct(key);
