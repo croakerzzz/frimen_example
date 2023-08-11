@@ -21,6 +21,12 @@ export class PaIteratorDirective {
             };
 
             this.container.createEmbeddedView(this.template, context);
+
+            setInterval(() => {
+                context.odd = !context.odd;
+                context.even = !context.even;
+                context.$implicit.price++;
+            }, 2000);
         });
     }
 
