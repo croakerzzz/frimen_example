@@ -3,24 +3,35 @@ import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from "@angular/
 @Directive({
     selector: "[paForOf]"
 })
-export class PaIteratorDirective implements OnInit {
+export class PaIteratorDirective {
     constructor(private container: ViewContainerRef,
                 private template: TemplateRef<Object>) {
     }
 
-    @Input("paForOf")
-    dataSource: any;
-
-    ngOnInit() {
+    @Input()
+    set paForOf(collection: any[]) {
         this.container.clear();
-        for (let i = 0; i < this.dataSource.length; i++) {
-            this.container.createEmbeddedView(this.template,
-                new PaIteratorContext(this.dataSource[i]));
-        }
+
+        collection.forEach((item, index) => {
+            const context = {
+                $implicit: item,
+                index
+            };
+
+            this.container.createEmbeddedView(this.template, context);
+        });
     }
+
+    // ngOnInit() {
+    //     this.container.clear();
+    //     for (let i = 0; i < this.dataSource.length; i++) {
+    //         this.container.createEmbeddedView(this.template,
+    //             new PaIteratorContext(this.dataSource[i]));
+    //     }
+    // }
 }
 
-class PaIteratorContext {
-    constructor(public $implicit: any) {
-    }
-}
+// class PaIteratorContext {
+//     constructor(public $implicit: any) {
+//     }
+// }
