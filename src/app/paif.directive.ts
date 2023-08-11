@@ -1,6 +1,4 @@
-import {
-    Directive, SimpleChange, ViewContainerRef, TemplateRef, Input, SimpleChanges
-} from "@angular/core";
+import {Directive, Input, TemplateRef, ViewContainerRef} from "@angular/core";
 
 @Directive({
     selector: "[paIf]"
@@ -11,15 +9,28 @@ export class PaStructureDirective {
                 private template: TemplateRef<Object>) {
     }
 
-    @Input("paIf")
-    expressionResult!: boolean;
-
-    ngOnChanges(changes: SimpleChanges) {
-        let change = changes["expressionResult"];
-        if (!change.isFirstChange() && !change.currentValue) {
-            this.container.clear();
-        } else if (change.currentValue) {
+    // пример из chatgpt
+    @Input()
+    set paIf(condition: boolean) {
+        if (condition) {
             this.container.createEmbeddedView(this.template);
+        } else {
+            this.container.clear();
         }
     }
+
+    // @Input("paIf")
+    // expressionResult!: boolean;
+    //
+    // ngOnChanges(changes: SimpleChanges) {
+    //     let change = changes["expressionResult"];
+    //
+    //     console.log(change);
+    //
+    //     if (!change.isFirstChange() && !change.currentValue) {
+    //         this.container.clear();
+    //     } else if (change.currentValue) {
+    //         this.container.createEmbeddedView(this.template);
+    //     }
+    // }
 }
