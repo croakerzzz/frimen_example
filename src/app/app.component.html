@@ -45,7 +45,7 @@
         <tr *paFor="let item of getProducts(); let i = index; let odd = odd;let even = even"
             [class.bg-info]="odd"
             [class.bg-warning]="even">
-            <td style="vertical-align:middle">{{i + 1}}</td>
+            <td pa-td style="vertical-align:middle">{{i + 1}}</td>
             <td style="vertical-align:middle">{{item.name}}</td>
             <td style="vertical-align:middle">{{item.category}}</td>
             <td style="vertical-align:middle">{{item.price}}</td>
