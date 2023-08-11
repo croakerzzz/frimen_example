@@ -16,6 +16,8 @@ export class AppComponent {
 
     showTable: boolean = true;
 
+    darkColor = false;
+
     getProduct(key: number): Product | undefined {
         return this.model.getProduct(key);
     }

@@ -7,6 +7,8 @@ import {PaAttrDirective} from "./attr.directive";
 import {PaModel} from "./twoway.directive";
 import {PaStructureDirective} from "./paif.directive";
 import {PaIteratorDirective} from "./iterator.directive";
+import {PaCellColor} from "./cellColor.directive";
+import {PaCellColorSwitcher} from "./cellColorSwitcher.directive";
 
 @NgModule({
     declarations: [
@@ -14,7 +16,9 @@ import {PaIteratorDirective} from "./iterator.directive";
         PaAttrDirective,
         PaModel,
         PaStructureDirective,
-        PaIteratorDirective
+        PaIteratorDirective,
+        PaCellColor,
+        PaCellColorSwitcher
     ],
     imports: [
         BrowserModule,

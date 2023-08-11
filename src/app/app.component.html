@@ -27,7 +27,13 @@
             Show Table
         </label>
     </div>
-    <table *paIf="showTable"
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" [(ngModel)]="darkColor"/>
+            Dark Cell Color
+        </label>
+    </div>
+    <table *paIf="showTable" [paCellDarkColor]="darkColor"
            class="table table-sm table-bordered table-striped">
         <tr>
             <th></th>
