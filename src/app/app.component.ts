@@ -34,6 +34,10 @@ export class AppComponent {
         this.model.saveProduct(p);
     }
 
+    deleteProduct(key: number) {
+        this.model.deleteProduct(key);
+    }
+
     formSubmitted: boolean = false;
 
     submitForm(form: ProductFormGroup) {
