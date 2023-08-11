@@ -30,6 +30,12 @@
 </div>
 
 <div class="col-xs-6">
+    <div class="form-group bg-info p-a-1">
+        <label>Name:</label>
+        <input class="bg-primary" [paModel]="newProduct.name"
+               (paModelChange)="newProduct.name=$event"/>
+    </div>
+
     <table class="table table-sm table-bordered table-striped">
         <tr>
             <th></th>

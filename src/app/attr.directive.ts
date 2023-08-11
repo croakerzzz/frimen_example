@@ -1,12 +1,12 @@
 import {
     Directive,
-    ElementRef,
-    EventEmitter, HostBinding, HostListener,
+    EventEmitter,
+    HostBinding,
+    HostListener,
     Input,
     OnChanges,
     OnInit,
     Output,
-    SimpleChange,
     SimpleChanges
 } from "@angular/core";
 import {Product} from "./model/product.model";
