@@ -11,6 +11,7 @@ import {PaCellColor} from "./cellColor.directive";
 import {PaCellColorSwitcher} from "./cellColorSwitcher.directive";
 import { ProductTableComponent } from './product-table/product-table.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { ToggleViewComponent } from './toggle-view/toggle-view.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { ProductFormComponent } from './product-form/product-form.component';
         PaCellColor,
         PaCellColorSwitcher,
         ProductTableComponent,
-        ProductFormComponent
+        ProductFormComponent,
+        ToggleViewComponent
     ],
     imports: [
         BrowserModule,
