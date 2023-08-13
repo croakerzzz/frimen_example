@@ -5,7 +5,7 @@ import {Product} from "../model/product.model";
 @Component({
     selector: 'pa-product-form',
     templateUrl: './product-form.component.html',
-    styleUrls: ['./product-form.component.css'],
+    //styleUrls: ['./product-form.component.css'],
 })
 export class ProductFormComponent {
 
