@@ -9,6 +9,8 @@ import {Product} from "../model/product.model";
 })
 export class ProductTableComponent {
 
+    taxRate = "0";
+
     @Input("model")
     dataModel!: Model;
 
@@ -24,4 +26,7 @@ export class ProductTableComponent {
         this.dataModel.deleteProduct(key);
     }
 
+    setTaxRate($event: any) {
+        this.taxRate = $event.target.value
+    }
 }
