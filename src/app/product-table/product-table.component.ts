@@ -13,6 +13,7 @@ export class ProductTableComponent {
 
     @Input("model")
     dataModel!: Model;
+    categoryFilter: any;
 
     getProduct(key: number): Product | undefined {
         return this.dataModel.getProduct(key);

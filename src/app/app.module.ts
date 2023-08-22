@@ -9,10 +9,11 @@ import {PaStructureDirective} from "./paif.directive";
 import {PaIteratorDirective} from "./iterator.directive";
 import {PaCellColor} from "./cellColor.directive";
 import {PaCellColorSwitcher} from "./cellColorSwitcher.directive";
-import { ProductTableComponent } from './product-table/product-table.component';
-import { ProductFormComponent } from './product-form/product-form.component';
-import { ToggleViewComponent } from './toggle-view/toggle-view.component';
+import {ProductTableComponent} from './product-table/product-table.component';
+import {ProductFormComponent} from './product-form/product-form.component';
+import {ToggleViewComponent} from './toggle-view/toggle-view.component';
 import {PaAddTaxPipe} from "./addTax.pipe";
+import {PaCategoryFilterPipe} from "./categoryFilter.pipe";
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import {PaAddTaxPipe} from "./addTax.pipe";
         ProductFormComponent,
         ToggleViewComponent,
         PaAddTaxPipe,
+        PaCategoryFilterPipe
     ],
     imports: [
         BrowserModule,
