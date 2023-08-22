@@ -15,6 +15,11 @@
         <option>Chess</option>
     </select>
 </div>
+<div class="bg-info m-a-1 p-a-1">
+    <div>Date formatted from object: {{ dateObject | date }}</div>
+    <div>Date formatted from string: {{ dateString | date }}</div>
+    <div>Date formatted from number: {{ dateNumber | date:"dd-MMMM-yyyy  hh:mm:ss a" }}</div>
+</div>
 <table class="table table-sm table-bordered table-striped">
     <tr>
         <th></th>
@@ -29,9 +34,7 @@
         <td style="vertical-align:middle">{{i + 1}}</td>
         <td style="vertical-align:middle">{{item.name}}</td>
         <td style="vertical-align:middle">{{item.category}}</td>
-        <td style="vertical-align:middle">
-            {{item.price | addTax:(taxRate || 0) | currency:"USD":true}}
-        </td>
+        <td style="vertical-align:middle">{{item.price | number:"3.3-3" }}</td>
         <td class="text-xs-center">
             <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">
                 Delete
