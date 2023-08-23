@@ -5,12 +5,15 @@ import {DiscountService} from "../discount.service";
     selector: "paDiscountDisplay",
     template: `
         <div class="bg-info p-a-1">
-            The discount is {{discounter.discount}}
+            The discount is {{dis.discount}}
         </div>`
 })
 export class PaDiscountDisplayComponent {
 
-    @Input("discounter")
-    discounter!: DiscountService;
+    dis!: DiscountService;
+
+    constructor(private discounter: DiscountService) {
+        this.dis = discounter;
+    }
 
 }

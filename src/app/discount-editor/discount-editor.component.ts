@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
 import {DiscountService} from "../discount.service";
 
 @Component({
@@ -6,13 +6,16 @@ import {DiscountService} from "../discount.service";
     template: `
         <div class="form-group">
             <label>Discount</label>
-            <input [(ngModel)]="discounter.discount"
+            <input [(ngModel)]="dis.discount"
                    class="form-control" type="number"/>
         </div>`
 })
 export class PaDiscountEditorComponent {
 
-    @Input("discounter")
-    discounter!: DiscountService;
+    dis!: DiscountService;
+
+    constructor(private discounter: DiscountService) {
+        this.dis = discounter;
+    }
 
 }

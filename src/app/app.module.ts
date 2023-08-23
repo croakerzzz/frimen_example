@@ -16,6 +16,7 @@ import {PaAddTaxPipe} from "./addTax.pipe";
 import {PaCategoryFilterPipe} from "./categoryFilter.pipe";
 import {PaDiscountDisplayComponent} from "./discount-display/discount-display.component";
 import {PaDiscountEditorComponent} from "./discount-editor/discount-editor.component";
+import {DiscountService} from "./discount.service";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,7 @@ import {PaDiscountEditorComponent} from "./discount-editor/discount-editor.compo
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [],
+    providers: [DiscountService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
