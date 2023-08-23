@@ -13,6 +13,6 @@ export class DiscountService {
     }
 
     public applyDiscount(price: number) {
-        return Math.max(price - this.discountValue, 5);
+        return price - price * this.discountValue / 100;
     }
 }

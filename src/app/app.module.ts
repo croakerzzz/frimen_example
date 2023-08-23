@@ -17,6 +17,8 @@ import {PaCategoryFilterPipe} from "./categoryFilter.pipe";
 import {PaDiscountDisplayComponent} from "./discount-display/discount-display.component";
 import {PaDiscountEditorComponent} from "./discount-editor/discount-editor.component";
 import {DiscountService} from "./discount.service";
+import {PaDiscountPipe} from "./discount.pipe";
+import {PaDiscountAmountDirective} from "./discountAmount.directive";
 
 @NgModule({
     declarations: [
@@ -34,6 +36,8 @@ import {DiscountService} from "./discount.service";
         PaCategoryFilterPipe,
         PaDiscountDisplayComponent,
         PaDiscountEditorComponent,
+        PaDiscountPipe,
+        PaDiscountAmountDirective
     ],
     imports: [
         BrowserModule,
