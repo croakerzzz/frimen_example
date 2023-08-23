@@ -14,6 +14,8 @@ import {ProductFormComponent} from './product-form/product-form.component';
 import {ToggleViewComponent} from './toggle-view/toggle-view.component';
 import {PaAddTaxPipe} from "./addTax.pipe";
 import {PaCategoryFilterPipe} from "./categoryFilter.pipe";
+import {PaDiscountDisplayComponent} from "./discount-display/discount-display.component";
+import {PaDiscountEditorComponent} from "./discount-editor/discount-editor.component";
 
 @NgModule({
     declarations: [
@@ -28,7 +30,9 @@ import {PaCategoryFilterPipe} from "./categoryFilter.pipe";
         ProductFormComponent,
         ToggleViewComponent,
         PaAddTaxPipe,
-        PaCategoryFilterPipe
+        PaCategoryFilterPipe,
+        PaDiscountDisplayComponent,
+        PaDiscountEditorComponent,
     ],
     imports: [
         BrowserModule,
