@@ -21,7 +21,10 @@ import {PaDiscountPipe} from "./discount.pipe";
 import {PaDiscountAmountDirective} from "./discountAmount.directive";
 import {Model} from "./model/repository.model";
 import {SimpleDataSource} from "./model/datasource.model";
-import {LOG_SERVICE, LogService, SpecialLogService} from "./log.service";
+import {LogLevel, LogService} from "./log.service";
+
+const logger = new LogService();
+logger.minimumLevel = LogLevel.DEBUG;
 
 @NgModule({
     declarations: [
@@ -52,14 +55,8 @@ import {LOG_SERVICE, LogService, SpecialLogService} from "./log.service";
         SimpleDataSource,
         Model,
         {
-            provide: LOG_SERVICE,
-            useClass: LogService,
-            multi: true
-        },
-        {
-            provide: LOG_SERVICE,
-            useClass: SpecialLogService,
-            multi: true
+            provide: LogService,
+            useValue: logger
         }
     ],
     bootstrap: [AppComponent]
