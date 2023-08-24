@@ -49,11 +49,17 @@ import {LOG_SERVICE, LogService, SpecialLogService} from "./log.service";
     ],
     providers: [
         DiscountService,
-        Model,
         SimpleDataSource,
+        Model,
         {
             provide: LOG_SERVICE,
-            useClass: SpecialLogService
+            useClass: LogService,
+            multi: true
+        },
+        {
+            provide: LOG_SERVICE,
+            useClass: SpecialLogService,
+            multi: true
         }
     ],
     bootstrap: [AppComponent]
