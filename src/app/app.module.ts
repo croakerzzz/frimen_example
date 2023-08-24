@@ -52,7 +52,7 @@ import {LogService} from "./log.service";
         Model,
         SimpleDataSource,
         {
-            provide: LogService,
+            provide: "logger",
             useClass: LogService
         }
     ],
