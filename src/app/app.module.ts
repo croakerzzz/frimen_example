@@ -47,7 +47,15 @@ import {LogService} from "./log.service";
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [DiscountService, Model, SimpleDataSource, LogService],
+    providers: [
+        DiscountService,
+        Model,
+        SimpleDataSource,
+        {
+            provide: LogService,
+            useClass: LogService
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
