@@ -21,7 +21,7 @@ import {PaDiscountPipe} from "./discount.pipe";
 import {PaDiscountAmountDirective} from "./discountAmount.directive";
 import {Model} from "./model/repository.model";
 import {SimpleDataSource} from "./model/datasource.model";
-import {LOG_SERVICE, LogService} from "./log.service";
+import {LOG_SERVICE, LogService, SpecialLogService} from "./log.service";
 
 @NgModule({
     declarations: [
@@ -53,7 +53,7 @@ import {LOG_SERVICE, LogService} from "./log.service";
         SimpleDataSource,
         {
             provide: LOG_SERVICE,
-            useClass: LogService
+            useClass: SpecialLogService
         }
     ],
     bootstrap: [AppComponent]
