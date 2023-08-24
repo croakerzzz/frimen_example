@@ -19,6 +19,8 @@ import {PaDiscountEditorComponent} from "./discount-editor/discount-editor.compo
 import {DiscountService} from "./discount.service";
 import {PaDiscountPipe} from "./discount.pipe";
 import {PaDiscountAmountDirective} from "./discountAmount.directive";
+import {Model} from "./model/repository.model";
+import {SimpleDataSource} from "./model/datasource.model";
 
 @NgModule({
     declarations: [
@@ -44,7 +46,7 @@ import {PaDiscountAmountDirective} from "./discountAmount.directive";
         FormsModule,
         ReactiveFormsModule
     ],
-    providers: [DiscountService],
+    providers: [DiscountService, Model, SimpleDataSource],
     bootstrap: [AppComponent]
 })
 export class AppModule {
