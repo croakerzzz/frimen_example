@@ -1,7 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Model} from "../model/repository.model";
 import {Product} from "../model/product.model";
-import {DiscountService} from "../discount.service";
 
 @Component({
     selector: 'pa-product-table',
@@ -10,26 +9,30 @@ import {DiscountService} from "../discount.service";
 })
 export class ProductTableComponent {
 
+    constructor(private model: Model) {
+    }
+
     taxRate = "0";
 
     dateObject: Date = new Date(2020, 1, 20);
     dateString: string = "2020-02-20T00:00:00.000Z";
     dateNumber: number = 1582156867500;
 
-    @Input("model")
-    dataModel!: Model;
+    // @Input("model")
+    // dataModel!: Model;
+
     categoryFilter: any;
 
     getProduct(key: number): Product | undefined {
-        return this.dataModel.getProduct(key);
+        return this.model.getProduct(key);
     }
 
     getProducts(): Product[] {
-        return this.dataModel.getProducts();
+        return this.model.getProducts();
     }
 
     deleteProduct(key: number) {
-        this.dataModel.deleteProduct(key);
+        this.model.deleteProduct(key);
     }
 
     setTaxRate($event: any) {
