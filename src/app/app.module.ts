@@ -56,7 +56,11 @@ logger.minimumLevel = LogLevel.DEBUG;
         Model,
         {
             provide: LogService,
-            useValue: logger
+            useFactory: () => {
+                let logger = new LogService();
+                logger.minimumLevel = LogLevel.DEBUG;
+                return logger;
+            }
         }
     ],
     bootstrap: [AppComponent]
