@@ -21,7 +21,7 @@ import {PaDiscountPipe} from "./discount.pipe";
 import {PaDiscountAmountDirective} from "./discountAmount.directive";
 import {Model} from "./model/repository.model";
 import {SimpleDataSource} from "./model/datasource.model";
-import {LogLevel, LogService} from "./log.service";
+import {LOG_LEVEL, LogLevel, LogService} from "./log.service";
 
 const logger = new LogService();
 logger.minimumLevel = LogLevel.DEBUG;
@@ -55,14 +55,22 @@ logger.minimumLevel = LogLevel.DEBUG;
         SimpleDataSource,
         Model,
         {
+            provide: LOG_LEVEL,
+            useValue: LogLevel.DEBUG
+        },
+        {
+            provide: "debugLevel",
+            useExisting: LOG_LEVEL
+        },
+        {
             provide: LogService,
-            useFactory: () => {
+            deps: ["debugLevel"],
+            useFactory: (level: LogLevel) => {
                 let logger = new LogService();
-                logger.minimumLevel = LogLevel.DEBUG;
+                logger.minimumLevel = level;
                 return logger;
             }
-        }
-    ],
+        }],
     bootstrap: [AppComponent]
 })
 export class AppModule {
